@@ -1,0 +1,91 @@
+<html>
+  <body>
+    <canvas width="600" height="600"></canvas>
+    <script type="text/javascript">
+      let canvas = document.querySelector("canvas");
+      let context = canvas.getContext("2d");
+
+      context.fillStyle = "yellow";
+      // context.fillRect(70, 130 ,400, 400);
+      context.lineWidth = 5;
+
+      // Drawing a Rectangel
+      context.beginPath();
+      context.rect(100, 100, 400, 400);
+      // context.stroke();
+
+      // Drawing a cicrle
+      context.beginPath();
+      context.arc(250, 350, 100, 0, 2 * Math.PI);
+      // context.stroke();
+
+      const width = 60;
+      const heigth = 60;
+      const space = 25;
+      const sml = 20;
+      let x, y;
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          x = 100 + (width + space) * i;
+          y = 100 + (heigth + space) * j;
+
+          context.beginPath();
+          context.rect(x, y, width, heigth);
+          context.stroke();
+
+          if (Math.random() > 0.5) {
+            context.beginPath();
+            context.rect(x + sml / 2, y + sml / 2, width - sml, heigth - sml);
+            context.stroke();
+          } else {
+            context.beginPath();
+            context.arc(
+              x + width / 2,
+              y + heigth / 2,
+              width / 2,
+              0,
+              2 * Math.PI
+            );
+            context.stroke();
+
+            // if (i > 0 && i < 4 && i != 2){ //This draws a circle in every second block
+            // context.beginPath();
+            // context.rect(x + (sml/2), y + (sml/2), width - sml, heigth - sml);
+            // context.stroke();
+            // }
+            // else {
+            // 	context.beginPath();
+            // 	context.arc(x + (width/2), y + (heigth/2), width/2, 0, 2 * Math.PI);
+            // 	context.stroke();
+          }
+        }
+      }
+
+      // if (condition){
+      // 	// do something
+      // }
+      // else{
+      // 	// do something else
+      // }
+
+      let years = [];
+      let menu = ["Thys", "Riette", "Finn", "Zina", "Groot Thys", "Louise"];
+      let length = menu.length;
+
+      // for (let i = 0; i < menu.length; i++){
+      // 	console.log(menu[i]);
+      // }
+
+      for (let i = 0; i < menu.length; i++) {
+        years.push(2023 + i);
+      }
+
+      console.log(years);
+
+      menu.forEach((item) => {
+        console.log(item);
+      });
+    </script>
+  </body>
+</html>
